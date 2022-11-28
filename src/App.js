@@ -1,22 +1,31 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [imgSrc, setImgSrc] = useState('');
+
+  const handleClick = () => {
+    setImgSrc('https://lh3.googleusercontent.com/ogw/AOh-ky37qxWvGGL7ZZs09PtotH_jzuyCkajWrEwactyWYQ=s64-c-mo');
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        {imgSrc && <img
+          src={imgSrc}
+          key={imgSrc}
+          className="App-logo"
+          alt="logo" />}
+        <input
+          className="App-prompt"
+          placeholder='Enter your prompt here'
+        ></input>
+        <button
+          className="App-button"
+          onClick={handleClick}
         >
-          Learn React
-        </a>
+          Submit
+        </button>
       </header>
     </div>
   );
