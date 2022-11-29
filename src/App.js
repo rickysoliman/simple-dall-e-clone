@@ -3,15 +3,15 @@ import { Configuration, OpenAIApi } from 'openai';
 import './App.css';
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
 const App = () => {
   const [prompt, setPrompt] = useState('');
-  const [imgSrc, setImgSrc] = useState('');
+  const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
 
   let errorMessage = '';
 
@@ -19,63 +19,52 @@ const App = () => {
     setPrompt(e.nativeEvent.srcElement.value);
   }
 
-  const generateImage = async () => {
-    if (imgSrc) {
-      setImgSrc('');
-    }
+  const generateImages = async () => {
+    if (!prompt) return;
 
     setIsLoading(true);
     await openai.createImage({
       prompt,
-      n: 1,
+      n: 4,
       size: '1024x1024',
     })
       .then((resp) => {
         setIsLoading(false);
-        setImgSrc(resp.data.data[0].url);
+        setImages(resp.data.data);
       })
       .catch((err) => {
-        console.log({ err });
-        handleError(err.data.errorMessage);
+        errorMessage = err.response.data.errorMessage;
+        setError(true);
       });
   }
-
-  const handleError = (message) => {
-    errorMessage = message;
-    setError(true);
-  }
-
-  const image = (
-    <div>
-      <h2>{prompt}</h2>
-      <img src={imgSrc} key={imgSrc} className="App-logo" alt="logo"></img>
-    </div>
-  );
 
   const loading = (
     <span>Loading...</span>
   );
 
-  const initial = (
-    <span>Your AI generated image here</span>
-  );
-
-  return error ? (<span>{errorMessage}</span>) : (
+  return (
     <div className="App">
+      <div className="App-error-message">{error ? errorMessage : null}</div>
       <header className="App-header">
-        {isLoading ? loading : imgSrc ? image : initial}
-        <input
+        <textarea
           className="App-prompt"
           placeholder="Enter your prompt here"
           onChange={handlePromptChange}
-        ></input>
+        ></textarea>
         <button
           className="App-button"
-          onClick={generateImage}
+          type="submit"
+          disabled={!prompt}
+          onClick={generateImages}
         >
-          Submit
+          {prompt ? 'create your artwork!' : 'please enter a prompt'}
         </button>
       </header>
+      <div className="App-result">
+        {isLoading ? loading : images.length ? (
+          images.map((image) => <img src={image.url} key={image.url} className="App-image" alt="result"></img>)
+        ) : null}
+      </div>
     </div>
   );
 }

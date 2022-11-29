@@ -1,26 +1,98 @@
 .App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #26112e;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  text-align: center;
+  background-color: #89cff0;
+  min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-image {
+  height: 50vh;
+}
+
 .App-prompt {
-  padding: 10px;
-  margin: 20px;
+  font-family: inherit;
+  font-size: 20px;
+  height: fit-content;
+  min-height: 150px;
+  border-radius: 25px;
+  padding: 12px 30px;
+  width: 52vw;
+  max-width: 800px;
+  margin: 1em;
 }
 
 .App-button {
-  padding: 5px;
-  border-radius: 3px;
-  border-color: blue;
-  background-color: blueviolet;
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin-bottom: 1em;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.App-button:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.App-button:main,
+.App-button:focus {
+  user-select: auto;
+}
+
+.App-button:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.App-button:disabled {
+  cursor: auto;
+}
+
+.App-error-message {
+  color: #D8000C;
+  background-color: #FFBABA;
 }
