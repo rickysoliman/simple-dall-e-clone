@@ -30,15 +30,27 @@
 }
 
 .App-prompt {
-  font-family: inherit;
-  font-size: 20px;
-  height: fit-content;
-  min-height: 150px;
-  border-radius: 25px;
-  padding: 12px 30px;
+  background: #fff;
+  border-radius: 15px;
+  border-color: lightgray;
+  box-shadow: 0 2px 4px 0 rgba(0,0,82,.15);
+  overflow: hidden;
+  transition: box-shadow .2s ease-in-out;
+  padding: 10px;
+  height: 120px;
+  margin: 10px;
   width: 52vw;
-  max-width: 800px;
-  margin: 1em;
+  background-clip: padding-box;
+  background-color: #fff;
+  box-sizing: border-box;
+  color: #000;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1em;
+  resize: none;
+  vertical-align: top;
 }
 
 .App-button {

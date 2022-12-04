@@ -48,8 +48,9 @@ const App = () => {
         <h1 className="App-main-title">DALL·E</h1>
         <textarea
           className="App-prompt"
-          placeholder="Enter your prompt here"
+          placeholder="Enter your prompt here..."
           onChange={handlePromptChange}
+          maxLength="400"
         ></textarea>
           <button
             className="App-button"
