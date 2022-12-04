@@ -14,9 +14,7 @@ const App = () => {
   const [dimensions, setDimensions] = useState('1024x1024');
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(true);
-
-  let errorMessage = '';
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handlePromptChange = (e) => {
     setPrompt(e.nativeEvent.srcElement.value);
@@ -24,6 +22,9 @@ const App = () => {
 
   const generateImages = async () => {
     if (!prompt) return;
+    if (errorMessage) {
+      setErrorMessage('');
+    }
 
     setIsLoading(true);
     await openai.createImage({
@@ -36,14 +37,13 @@ const App = () => {
         setImages(resp.data.data);
       })
       .catch((err) => {
-        errorMessage = err.response.data.errorMessage;
-        setError(true);
+        setIsLoading(false);
+        setErrorMessage(err.response.data.error.message);
       });
   }
 
   return (
     <div className="App">
-      <div className="App-error-message">{error ? errorMessage : null}</div>
       <header className="App-header">
         <h1 className="App-main-title">DALL·E</h1>
         <textarea
@@ -83,10 +83,18 @@ const App = () => {
             </select>
           </div>
       </header>
+      <span>
+        {errorMessage ? <div className="App-error-message">{errorMessage}</div> : null}
+      </span>
       <div className="App-results">
         {isLoading ? <Spinner/> : images.length ? (
-          images.map((image) => <img src={image.url} key={image.url} className="App-image" alt="result"></img>)
-        ) : null}
+          images.map((image) => {
+            return (
+              <a href={image.url} target="_blank" rel="noreferrer">
+                <img src={image.url} key={image.url} className="App-image" alt="result"></img>
+              </a>
+            );
+        })) : null}
       </div>
     </div>
   );
