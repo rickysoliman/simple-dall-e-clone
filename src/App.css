@@ -28,6 +28,10 @@
   margin: 1em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.App-image:hover:not(:disabled) {
+  height: 100%;
+  transition: all 0.25s ease;
+}
 
 .App-prompt {
   background: #fff;
@@ -36,7 +40,7 @@
   box-shadow: 0 2px 4px 0 rgba(0,0,82,.15);
   overflow: hidden;
   transition: box-shadow .2s ease-in-out;
-  padding: 10px;
+  padding: 15px;
   height: 120px;
   margin: 10px;
   width: 52vw;
@@ -54,61 +58,35 @@
 }
 
 .App-button {
-  appearance: button;
-  background-color: #1899D6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: din-round,sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: .8px;
-  line-height: 20px;
-  outline: none;
-  overflow: visible;
-  padding: 13px 16px;
+  outline:none;
+  height: 40px;
   text-align: center;
-  text-transform: uppercase;
-  touch-action: manipulation;
-  transform: translateZ(0);
-  transition: filter .2s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
+  width: 130px;
+  border-radius: 8px;
+  background: #fff;
+  border: 2px solid #000000;
+  color:#000000;
+  letter-spacing:1px;
+  text-shadow: 0;
+  font-size: 12px;
+  font-weight:bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-
-.App-button:after {
-  background-clip: padding-box;
-  background-color: #1CB0F6;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  bottom: -4px;
-  content: "";
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-.App-button:main,
 .App-button:focus {
   user-select: auto;
 }
-
-.App-button:hover:not(:disabled) {
-  filter: brightness(1.1);
-  -webkit-filter: brightness(1.1);
-}
-
 .App-button:disabled {
-  cursor: auto;
+  color: lightgray;
+  border: 2px solid lightgray;
+  cursor: default;
+}
+.App-button:hover:not(:disabled) {
+  color:white;
+  background: #000000;
+}
+.App-button:active {
+  letter-spacing: 2px;
 }
 
 .App-error-message {
@@ -149,7 +127,7 @@
   outline: none;
 }
 
-.App-results {
+/* .App-results {
   max-width: 80vw;
   margin-bottom: 2em;
-}
+} */

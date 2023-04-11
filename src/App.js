@@ -50,16 +50,13 @@ const App = () => {
           className="App-prompt"
           placeholder="Enter your prompt here..."
           onChange={handlePromptChange}
-          maxLength="400"
         ></textarea>
           <button
             className="App-button"
             type="submit"
             disabled={!prompt}
             onClick={generateImages}
-          >
-            {prompt ? 'create your artwork!' : 'please enter a prompt'}
-          </button>
+          >Generate</button>
           <div className="App-image-count">
             <label htmlFor="App-image-count-label" className="App-image-count-label">Number of images:</label>
             <select name="App-image-count-selector" className="App-image-count-selector" onChange={(e) => setNumOfImages(Number(e.target.value))}>
@@ -89,10 +86,10 @@ const App = () => {
       </span>
       <div className="App-results">
         {isLoading ? <Spinner/> : images.length ? (
-          images.map((image) => {
+          images.map((image, i) => {
             return (
-              <a href={image.url} target="_blank" rel="noreferrer">
-                <img src={image.url} key={image.url} className="App-image" alt="result"></img>
+              <a href={image.url} target="_blank" rel="noreferrer" key={`image ${i + 1}`}>
+                <img src={image.url} key={`image ${i + 1}`} className="App-image" alt="result"></img>
               </a>
             );
         })) : null}
