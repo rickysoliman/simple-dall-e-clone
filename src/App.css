@@ -20,8 +20,41 @@
 .App-main-title {
   font-family: "ColfaxAI", Helvetica, sans-serif;
   color: #000;
-  font-size: 2rem;
+  font-size: 2.75rem;
   margin-bottom: 0.5em;
+  letter-spacing: 2px;
+  text-shadow: 5px 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.App-main-title::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1d3c6e;
+  transition: width 0.3s ease;
+}
+
+.App-main-title:hover::before {
+  width: 100%;
+}
+
+.App-main-title:hover {
+  color: #1d3c6e;
+  text-shadow: 7px 6px 8px rgb(0 0 0 / 46%);
+  cursor: default;
+}
+
+.App-main-subtitle {
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: #000;
+  margin-top: 0;
+  opacity: 0.8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .App-prompt {

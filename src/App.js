@@ -45,7 +45,8 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="App-main-title">DALL·E</h1>
+        <h1 className="App-main-title">DALL·E Image Generation</h1>
+        <h3 className="App-main-subtitle">bring your ideas to life</h3>
         <textarea
           className="App-prompt"
           placeholder="Enter your prompt here..."
