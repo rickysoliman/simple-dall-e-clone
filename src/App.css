@@ -139,6 +139,41 @@
   letter-spacing: 2px;
 }
 
+.App-need-inspiration {
+  font-size: 0.5em;
+}
+
+.App-random-prompt-button {
+  outline: none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius: 8px;
+  background: linear-gradient(to right, #617bff, #83a6ff);
+  border: none;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-left: 1em;
+}
+
+.App-random-prompt-button:focus {
+  user-select: none;
+}
+
+.App-random-prompt-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.App-random-prompt-button:active {
+  letter-spacing: 2px;
+}
+
 .App-error-message {
   color: #ba3939;
   background: #ffe0e0;

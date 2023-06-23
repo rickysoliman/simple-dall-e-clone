@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import Spinner from './components/common/Spinner';
+import examplePrompts from './components/common/ExamplePrompts';
 import './App.css';
 
 const configuration = new Configuration({
@@ -18,6 +19,11 @@ const App = () => {
 
   const handlePromptChange = (e) => {
     setPrompt(e.nativeEvent.srcElement.value);
+  }
+
+  const generateRandomPrompt = () => {
+    const randomPrompt = examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
+    setPrompt(randomPrompt);
   }
 
   const generateImages = async () => {
@@ -49,6 +55,7 @@ const App = () => {
         <h3 className="App-main-subtitle">bring your ideas to life</h3>
         <textarea
           className="App-prompt"
+          value={prompt}
           placeholder="Enter your prompt here..."
           onChange={handlePromptChange}
         ></textarea>
@@ -83,6 +90,8 @@ const App = () => {
               </select>
             </div>
           </div>
+          <p className="App-need-inspiration">Need some inspiration?</p>
+          <button className="App-random-prompt-button" onClick={generateRandomPrompt}>Surprise me!</button>
       </header>
       <span>
         {errorMessage ? <div className="App-error-message">{errorMessage}</div> : null}
