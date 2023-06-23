@@ -52,7 +52,10 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <h1 className="App-main-title">DALL·E Image Generation</h1>
+        <h4 className="App-main-subtitle">by OpenAI</h4>
         <h3 className="App-main-subtitle">bring your ideas to life</h3>
+      </header>
+      <div className="App-generation-interface">
         <textarea
           className="App-prompt"
           value={prompt}
@@ -90,13 +93,15 @@ const App = () => {
               </select>
             </div>
           </div>
-          <p className="App-need-inspiration">Need some inspiration?</p>
-          <button className="App-random-prompt-button" onClick={generateRandomPrompt}>Surprise me!</button>
-      </header>
-      <span>
-        {errorMessage ? <div className="App-error-message">{errorMessage}</div> : null}
-      </span>
+          <div className="random-prompt-generator">
+            <p className="need-inspiration">Need some inspiration?</p>
+            <button className="random-prompt-button" onClick={generateRandomPrompt}>Surprise me!</button>
+          </div>
+        </div>
       <div className="App-results">
+        <span>
+          {errorMessage ? <div className="App-error-message">{errorMessage}</div> : null}
+        </span>
         {isLoading ? <Spinner/> : images.length ? (
           images.map((image, i) => {
             return (

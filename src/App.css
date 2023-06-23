@@ -11,22 +11,26 @@
 }
 
 .App-header {
-  margin: 2em 0;
+  background-color: #333;
+  padding: 2em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .App-main-title {
   font-family: "ColfaxAI", Helvetica, sans-serif;
-  color: #000;
+  color: #ffffff;
   font-size: 2.75rem;
   margin-bottom: 0.5em;
   letter-spacing: 2px;
   text-shadow: 5px 4px 6px rgba(0, 0, 0, 0.3);
   position: relative;
 }
-
 .App-main-title::before {
   content: "";
   position: absolute;
@@ -34,16 +38,13 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #1d3c6e;
+  background-color: #dddddd;
   transition: width 0.3s ease;
 }
-
 .App-main-title:hover::before {
   width: 100%;
 }
-
 .App-main-title:hover {
-  color: #1d3c6e;
   text-shadow: 7px 6px 8px rgb(0 0 0 / 46%);
   cursor: default;
 }
@@ -51,10 +52,22 @@
 .App-main-subtitle {
   font-family: "ColfaxAI", Helvetica, sans-serif;
   font-size: 1.2rem;
-  color: #000;
+  color: #ffffff;
   margin-top: 0;
   opacity: 0.8;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+.App-main-subtitle p {
+  font-size: 1em;
+}
+
+.App-generation-interface {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-prompt {
@@ -107,7 +120,7 @@
   text-align: center;
   width: 130px;
   border-radius: 8px;
-  background: linear-gradient(to right, #a2c3d9, #8d9db6);
+  background: linear-gradient(to right, #617bff, #83a6ff);
   border: none;
   color: #fff;
   letter-spacing: 1px;
@@ -139,17 +152,26 @@
   letter-spacing: 2px;
 }
 
-.App-need-inspiration {
+.random-prompt-generator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.need-inspiration {
   font-size: 0.5em;
 }
 
-.App-random-prompt-button {
+.random-prompt-button {
   outline: none;
-  height: 40px;
+  height: fit-content;
+  width: fit-content;
   text-align: center;
-  width: 130px;
+  font-size: 0.25em;
+  padding: 5px 10px;
   border-radius: 8px;
-  background: linear-gradient(to right, #617bff, #83a6ff);
+  background: linear-gradient(to right, #a2c3d9, #8d9db6);
   border: none;
   color: #fff;
   letter-spacing: 1px;
@@ -161,16 +183,16 @@
   margin-left: 1em;
 }
 
-.App-random-prompt-button:focus {
+.random-prompt-button:focus {
   user-select: none;
 }
 
-.App-random-prompt-button:hover {
+.random-prompt-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.App-random-prompt-button:active {
+.random-prompt-button:active {
   letter-spacing: 2px;
 }
 
@@ -186,7 +208,7 @@
 }
 
 .Spinner {
-  margin-bottom: 100px;
+  margin: 100px 0;
 }
 
 .App-parameters {
@@ -254,9 +276,8 @@
 }
 
 .App-image {
-  height: 100%;
-  max-height: 300px;
-  width: auto;
+  height: 400px;
+  width: 400px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: all 0.25s ease;
 }
