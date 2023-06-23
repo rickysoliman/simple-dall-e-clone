@@ -288,8 +288,37 @@
 }
 
 @media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .App {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .App-prompt {
-    width: 90vw;
+    width: 75vw;
+  }
+
+  .App-results {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    margin: 1em 0;
+  }
+
+  .App-image {
+    height: 300px;
+    width: 300px;
+  }
+
+  .footer {
+    max-width: 100vw;
+    padding: 20px 0;
   }
 }
 
@@ -300,7 +329,7 @@
   height: 90px;
   background-color: #333333;
   color: #ffffff;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
 }
 
