@@ -11,7 +11,7 @@ const openai = new OpenAIApi(configuration);
 const App = () => {
   const [prompt, setPrompt] = useState('');
   const [numOfImages, setNumOfImages] = useState(1);
-  const [dimensions, setDimensions] = useState('1024x1024');
+  const [dimensions, setDimensions] = useState('256x256');
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -88,9 +88,11 @@ const App = () => {
         {isLoading ? <Spinner/> : images.length ? (
           images.map((image, i) => {
             return (
-              <a href={image.url} target="_blank" rel="noreferrer" key={`image ${i + 1}`}>
-                <img src={image.url} key={`image ${i + 1}`} className="App-image" alt="result"></img>
-              </a>
+              <div className="image-container">
+                <a href={image.url} target="_blank" rel="noreferrer" key={`image ${i + 1}`}>
+                  <img src={image.url} key={`image ${i + 1}`} className="App-image" alt="result"></img>
+                </a>
+              </div>
             );
         })) : null}
       </div>

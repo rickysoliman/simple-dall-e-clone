@@ -27,10 +27,17 @@
   max-height: 50vh;
   margin: 1em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.25s ease;
 }
 .App-image:hover:not(:disabled) {
   height: 100%;
-  transition: all 0.25s ease;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 20px;
+  transform: scale(1.05);
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
 }
 
 .App-prompt {
@@ -126,8 +133,3 @@
   line-height: inherit;
   outline: none;
 }
-
-/* .App-results {
-  max-width: 80vw;
-  margin-bottom: 2em;
-} */
