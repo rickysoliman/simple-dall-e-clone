@@ -96,8 +96,22 @@ const App = () => {
                 </a>
               </div>
             );
-        })) : null}
+        })) : <></>}
       </div>
+      <footer class="footer">
+        <div class="footer-text">
+          <p>&copy; 2023 Ricky Marasigan.</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/ricky-marasigan/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/rickysoliman/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <p>Created with <a class="footer-link" href="https://openai.com" target="_blank" rel="noopener noreferrer">OpenAI</a> and React.</p>
+        </div>
+      </footer>
     </div>
   );
 }
