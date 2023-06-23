@@ -57,28 +57,30 @@ const App = () => {
             disabled={!prompt}
             onClick={generateImages}
           >Generate</button>
-          <div className="App-image-count">
-            <label htmlFor="App-image-count-label" className="App-image-count-label">Number of images:</label>
-            <select name="App-image-count-selector" className="App-image-count-selector" onChange={(e) => setNumOfImages(Number(e.target.value))}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-          <div className="App-dimension-selection">
-            <label htmlFor="App-dimension-selection-label" className="App-dimension-selection-label">Dimensions:</label>
-            <select name="App-dimension-selection-selector" className="App-dimension-selection-selector" onChange={(e) => setDimensions(e.target.value)}>
-              <option value="256x256">256x256</option>
-              <option value="512x512">512x512</option>
-              <option value="1024x1024">1024x1024</option>
-            </select>
+          <div className="App-parameters">
+            <div className="App-image-count">
+              <label htmlFor="App-image-count-label" className="App-image-count-label">Number of images:</label>
+              <select name="App-image-count-selector" className="App-image-count-selector" onChange={(e) => setNumOfImages(Number(e.target.value))}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <div className="App-dimension-selection">
+              <label htmlFor="App-dimension-selection-label" className="App-dimension-selection-label">Dimensions:</label>
+              <select name="App-dimension-selection-selector" className="App-dimension-selection-selector" onChange={(e) => setDimensions(e.target.value)}>
+                <option value="256x256">256x256</option>
+                <option value="512x512">512x512</option>
+                <option value="1024x1024">1024x1024</option>
+              </select>
+            </div>
           </div>
       </header>
       <span>

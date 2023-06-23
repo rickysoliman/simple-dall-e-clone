@@ -7,92 +7,77 @@
   background-color: #fafafc;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #333;
 }
 
 .App-header {
+  margin: 2em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .App-main-title {
-  font-family: ColfaxAI,Helvetica,sans-serif;
-  color: black;
-}
-
-.App-image {
-  height: 75%;
-  max-height: 50vh;
-  margin: 1em;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  transition: all 0.25s ease;
-}
-.App-image:hover:not(:disabled) {
-  height: 100%;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 20px;
-  transform: scale(1.05);
-}
-
-.image-container {
-  position: relative;
-  display: inline-block;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+  color: #000;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
 }
 
 .App-prompt {
   background: #fff;
   border-radius: 15px;
-  border-color: lightgray;
-  box-shadow: 0 2px 4px 0 rgba(0,0,82,.15);
+  border: 1px solid lightgray;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 82, 0.15);
   overflow: hidden;
-  transition: box-shadow .2s ease-in-out;
-  padding: 15px;
+  transition: box-shadow 0.2s ease-in-out;
+  padding: 1em;
   height: 120px;
-  margin: 10px;
-  width: 52vw;
-  background-clip: padding-box;
-  background-color: #fff;
-  box-sizing: border-box;
-  color: #000;
-  display: inline-block;
+  width: 70vw;
+  max-width: 800px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1em;
+  line-height: 1.5;
   resize: none;
-  vertical-align: top;
+  margin-bottom: 20px;
 }
 
 .App-button {
-  outline:none;
+  outline: none;
   height: 40px;
   text-align: center;
   width: 130px;
   border-radius: 8px;
-  background: #fff;
-  border: 2px solid #000000;
-  color:#000000;
-  letter-spacing:1px;
-  text-shadow: 0;
-  font-size: 12px;
-  font-weight:bold;
+  background: linear-gradient(to right, #a2c3d9, #8d9db6);
+  border: none;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.25s ease;
+  margin-left: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 .App-button:focus {
-  user-select: auto;
+  outline: none;
 }
+
 .App-button:disabled {
-  color: lightgray;
-  border: 2px solid lightgray;
-  cursor: default;
+  opacity: 0.7;
+  cursor: not-allowed;
 }
+
 .App-button:hover:not(:disabled) {
-  color:white;
-  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
 .App-button:active {
+  transform: translateY(1px);
   letter-spacing: 2px;
 }
 
@@ -101,35 +86,95 @@
   background: #ffe0e0;
   border: 1px solid #a33a3a;
   padding: 10px;
+  font-size: 0.9rem;
+  margin-top: 1em;
+  width: 70vw;
+  max-width: 800px;
 }
 
 .Spinner {
   margin: 100px;
 }
 
-.App-image-count, .App-dimension-selection {
-  font-family: ColfaxAI,Helvetica,sans-serif;
+.App-parameters {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5em;
 }
 
-.App-image-count-label, .App-dimension-selection-label {
-  font-size: 0.75em;
-  margin: 0.75em;
-  color: black;
+.App-image-count,
+.App-dimension-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
 }
 
-.App-image-count-selector, .App-dimension-selection-selector {
+.App-image-count-label,
+.App-dimension-selection-label {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+.App-image-count-selector,
+.App-dimension-selection-selector {
   appearance: none;
   background-color: transparent;
   border: none;
   padding: 0.5em;
-  margin: 0;
   font-family: inherit;
-  font-size: 0.75em;
-  cursor: inherit;
-  line-height: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
   outline: none;
+}
+
+.App-image-count-selector {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 0.4em 0.6em;
+  width: 60px;
+  text-align: center;
+}
+
+.App-dimension-selection-selector {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 0.4em 0.6em;
+  width: 100px;
+  text-align: center;
+}
+
+.App-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin: 1em;
+}
+
+.App-image {
+  height: 100%;
+  max-height: 300px;
+  width: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.25s ease;
+}
+
+.App-image:hover:not(:disabled) {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 20px;
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .App-prompt {
+    width: 90vw;
+  }
 }
